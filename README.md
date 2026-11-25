@@ -1,5 +1,5 @@
 <picture>
-  <source media="(prefers-reduced-motion: no-preference)" srcset="./assets/vawet-orbit.gif">
+  <source media="(prefers-reduced-motion: no-preference)" srcset="./assets/vawet-orbit.webp">
   <img src="./assets/vawet-cover.png" alt="Vawet，Web 全栈开发者。紫铜色的三叶结在点阵上缓缓转动。" width="100%">
 </picture>
 
