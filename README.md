@@ -18,3 +18,10 @@
 🕸️ **[节点画布实验](https://github.com/Vawet/xyflow-react-flow-) · 交互与渲染**<br>
 用 React Flow 和 PixiJS 画出同一类节点图，边拖拽、边缩放，观察 DOM 和 GPU 渲染的帧率变化。<br>
 `TypeScript` · `React Flow` · `PixiJS`
+
+## 贡献贪吃蛇
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Vawet/Vawet/contribution-snake/snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/Vawet/Vawet/contribution-snake/snake-light.svg" alt="贪吃蛇沿着 Vawet 过去一年的 GitHub 贡献日历移动，逐格吃掉有贡献的方块。" width="100%">
+</picture>
