@@ -1,0 +1,37 @@
+name: Contribution snake
+
+on:
+  schedule:
+    - cron: '17 22 * * *' # 06:17 Asia/Shanghai
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: contribution-snake
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Draw the contribution calendar
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake-light.svg?palette=github-light&color_snake=#c04f2c&color_dots=#efedf3,#dfcde9,#bc95cf,#9164aa,#674484
+            dist/snake-dark.svg?palette=github-dark&color_snake=#ff9a75&color_dots=#20212c,#483858,#715385,#a67cba,#dbb2ed
+
+      - name: Pause the animation when reduced motion is requested
+        run: sed -i 's|</style>|@media (prefers-reduced-motion:reduce){*{animation-play-state:paused!important}}</style>|' dist/*.svg
+
+      - name: Publish the images
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4
+        with:
+          github_token: ${{ github.token }}
+          publish_branch: contribution-snake
+          publish_dir: dist
+          keep_files: true
+          enable_jekyll: true
+          full_commit_message: "chore: refresh contribution snake"
